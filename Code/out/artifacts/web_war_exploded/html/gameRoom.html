@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>conquers</title>
+    <link rel="stylesheet" type="text/css" href="../css/OneReo.css">
+</head>
+<body id="mainBody">
+<div id="mainDiv">
+    <div id="divGameStatus">
+        <div id="GameStatusColor" class="statusDivGameDontStarted"></div>
+        <div id="gameStatusText">waiting for players...</div>
+    </div>
+<div>
+    <img src="../image/headline.jpg">
+</div>
+<br/>
+<div id="roundCounter">
+</div>
+    <div id="divExitBeforeGameStart">
+        <button id="btnExitbeforeGameStart" onclick="ExitbeforeGameStart()">Exit</button>
+        <div id="errorMassageExitPlayerBeforeGameStar"></div>
+    </div>
+    <div id="divLastAction"></div>
+<br/>
+<div>
+    <table id="tableMain">
+        <tr>
+            <th id="trLeft">
+                 <div>
+            <table id="playersTable"></table>
+        </div>
+                </br>
+                </br>
+                <div id="chat" style="background: #ffeeab">
+                    <div id="chatwindow">
+                        <h4>Chat</h4>
+                        <div id="chatarea" class="span6"></div>
+                        <div id="chatform">
+                            <input type="text" id="userstring" name="userstring"/>
+                            <button onclick="addMSG()" >Send</button>
+                        </div>
+                    </div>
+                </div>
+            </th>
+            <th id="thCenter" align="center">
+        <div id="boardTableComponent">
+        </div>
+        </th>
+            <th id="trRight">
+                <div id="rightDiv">
+                    <div id="turnDivActionComponent">
+                        <button id="btnSkipTurn" onclick="skipTurn()" style="visibility: hidden">skip turn</button>
+                        <button id="btnExitPlayer" onclick="exitPlayerAfterGameStarted()" style="visibility: hidden">exit</button>
+                    </div>
+                </div>
+                <div id="containers">
+                    <div id="buyTableDivActionComponent" >
+                        <table id="buyTable" class="tableclass">
+                            <thead class="TableHead">
+                                <tr>
+                                    <th style="width: 36px">rank</th>
+                                    <th style="width: 50px">unit</th>
+                                    <th style="width: 50px">power</th>
+                                    <th style="width: 56px">damage</th>
+                                    <th style="width: 40px">price</th>
+                                    <th style="width: 60px">quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody id="buyTableBody"  class="TableBody">
+                            </tbody>
+                        </table>
+                        <div id="buyArmyButton" style="alignment: center">
+                            <table style="alignment: center" >
+                                <tr>
+                                    <th style="width: 60px"></th>
+                                    <th style="font-size: large">power :</th>
+                                    <th  style="font-size: medium" id="buyArmyTablePower">0</th>
+                                    <th style="font-size: large">cost :</th>
+                                    <th style="font-size: medium" id="buyArmyTableCost">0</th>
+                                </tr>
+                                <tr style="alignment: center" >
+                                    <th></th>
+                                    <th><button style="alignment: center"  id="buttonForBuyArmy"  colspan="4" onclick="buyArmyInNewTeritory()">buy</button></th>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <th style="alignment: center"  colspan="4"><font size="3" color="red" id="errorBuyArmyForNewTeritory"></font></th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="unitTableDivActionComponent">
+                        <table id="myCellTable" class="tableclass">
+                            <thead  class="TableHead">
+                            <tr>
+                                <th style="width: 42px">rank</th>
+                                <th style="width: 65px">unit</th>
+                                <th style="width: 65px">quantity</th>
+                                <th style="width: 60px">fitness</th>
+                                <th style="width: 60px">power</th>
+                            </tr>
+                            </thead>
+                            <tbody id="myCellTableBody" class="TableBody">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="myCellDivActionsComponent">
+                        <div>
+                            <button onclick="openTrainArmyInMyCell()">Train</button>
+                            <button onclick="openBuyArmyInMyCell()">Buy Army</button>
+                        </div>
+                    </div>
+                    <div id="trainArmy">
+                        <button onclick="trainArmyInMyCell()">Train</button>
+                        <div id="messegeForTrainArmy"></div>
+                        <div id="errormessegeForTrainArmy" style="color: #ff081b"></div>
+                    </div>
+                    <div id="AttackDivActionComponent">
+                    <div>
+                        <input type="radio" checked="checked" onclick="luckyClicked()" name="AttackType" value="Calculated Risk">Calculated Risk<br>
+                        <input type="radio" onclick="goodTimingClicked()" name="AttackType" value="A Well-Orchestrated Attack">A Well-Orchestrated Attack
+                    </div>
+                </div>
+
+                </div>
+            </th>
+        </tr>
+    </table>
+
+</div>
+    <div id="LAframeOfPopup" >
+        <span id="LAhelper"></span>
+        <div id="LAdivAllPopup">
+            <div class="LApopupCloseButton" onclick="LAclosePopup()">X</div>
+                <div>
+                    <div id="LAattackStatus" class="headResultStatus"></div>
+                        <table id="LAunitTable">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th class="headResultName" id="LAattackerName" colspan="2"></th>
+                                <th class="headResultName" id="LAdefenderName" colspan="2"></th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th class="headResult">Quantities</th>
+                                <th class="headResult">Power</th>
+                                <th class="headResult">Quantities</th>
+                                <th class="headResult">Power</th>
+                            </tr>
+                            </thead>
+                            <tbody id="LAunitTableBody">
+
+                            </tbody>
+                        </table>
+            </div>
+        </div>
+    </div>
+    <div id="GTframeOfPopup" >
+        <span id="GThelper"></span>
+        <div id="GTdivAllPopup">
+            <div class="GTpopupCloseButton" onclick="GTclosePopup()">X</div>
+            <div>
+                <div id="GTattackStatus" class="headResultStatus"></div>
+                <table id="GTunitTable">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th class="headResult">Attacker</th>
+                        <th class="headResult">Defender</th>
+                        <th class="headResult">Attacker</th>
+                        <th class="headResult">Defender</th>
+                    </tr>
+                    </thead>
+                    <tbody id="GTunitTableBody">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="EGframeOfPopup" >
+        <span id="EGhelper"></span>
+        <div id="EGdivAllPopup">
+            <div class="EGpopupCloseButton" onclick="EGclosePopup()">X</div>
+            <div>
+                <div id="EGattackStatus"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="../javaScript/jQuery3.4.1.js"></script>
+<script type="text/javascript" src="../javaScript/gameRoomJS.js"></script>
+</div>
+</body>
+</html>

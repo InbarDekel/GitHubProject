@@ -1,0 +1,20 @@
+:root {
+  width: 99vw;
+  height: 100vh;
+}
+
+#usersList {
+  width: inherit;
+}
+
+.navbar.navbar-light.navbar-expand-md.text-secondary.bg-danger {
+  width: inherit;
+}
+
+.row {
+}
+
+.row {
+  width: inherit;
+}
+

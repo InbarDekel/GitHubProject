@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact name="FX:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/FX_jar</output-path>
+    <root id="root">
+      <element id="archive" name="FX.jar">
+        <element id="module-output" name="FX" />
+        <element id="module-output" name="Logic" />
+      </element>
+      <element id="library" level="project" name="src" />
+      <element id="library" level="project" name="AncestorFinder" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>AllRep</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+ <script src="../../common/jQuery3.4.1.js"></script>
+    <script src="../../common/context-path-helper.js"></script>
+    <script src="AllRep.js"></script>
+    <link rel="stylesheet" href="../../common/chatroom/chatroom.css">
+    <script src="../../common/chatroom/chatroom.js"></script>
+
+
+</head>
+
+<body style="max-width: inherit;max-height: inherit;">
+    <nav class="navbar navbar-light navbar-expand-md text-secondary bg-danger">
+        <div class="container-fluid"><a class="navbar-brand text-white" href="#">M.A.git</a>
+            <h1 class="text-dark">Main Page</h1>
+            <div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Chat&nbsp;</a>
+                <div class="dropdown-menu" style="max-height: 300px; min-width: 550px" role="menu">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="sidebar">
+                                    <h4>Online</h4>
+                                    <div class="clearfix">
+                                        <div class="input">
+                                            <ul id="userlist">
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="content">
+                                    <div id="chatwindow">
+                                        <h4>Chat</h4>
+                                        <div id="chatarea" class="span6"></div>
+                                        <form id="chatform" method="POST" action="sendChat">
+                                            <input type="text" id="userstring" name="userstring"/>
+                                            <input type="submit" value="Send"/>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><button class="btn btn-primary text-body" onclick="exitFromUser()" id="logourBTN">Logout</button></div>
+    </nav>
+    <div class="row">
+ <div class="col d-sm-flex justify-content-sm-start align-items-sm-center"><input type="file" onchange="loadFile(event)" id="fileChooser"></div>
+
+    </div>
+    <div class="row">
+        <div class="col">
+            <h4 class="float-left">Notifications</h4>
+        </div>
+        <div class="col">
+            <h4 class="d-sm-flex justify-content-sm-start align-items-sm-center" id="userNameLabel">UserName</h4>
+        </div>
+        <div class="col">
+            <h4 class="float-right d-sm-flex justify-content-sm-start align-items-sm-start">Users</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="float-left" role="tablist" id="notifications">
+                <div class="card">
+                    <div class="card-header" role="tab">
+                        <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="true" aria-controls="notifications .item-1" href="#notifications .item-1">Forked Repositories</a></h5>
+                    </div>
+                    <div class="collapse show item-1" role="tabpanel" data-parent="#notifications">
+                        <div class="card-body"><textarea id="forkNot" style="width: inherit;height: inherit;"></textarea></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" role="tab">
+                        <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="notifications .item-2" href="#notifications .item-2">Updates</a></h5>
+                    </div>
+                    <div class="collapse item-2" role="tabpanel" data-parent="#notifications">
+                                               <div class="card-body"><textarea id="PRNot"></textarea></div>
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" role="tab">
+                        <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="notifications .item-3" href="#notifications .item-3">PR requests</a></h5>
+                    </div>
+                    <div class="collapse item-3" role="tabpanel" data-parent="#notifications">
+                                              <div class="card-body"><textarea id="UpdateNot"></textarea></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <div role="tablist" id="curReps" style="overflow-y: scroll;max-height: inherit;">
+                <div class="card flex-shrink-1">
+                    <div class="card-header" role="tab"><button class="btn btn-primary btn-sm float-right" type="button">Open</button>
+
+                        <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="true" aria-controls="curReps .item-1" href="#curReps .item-1">RepName</a></h5>
+                    </div>
+                    <div class="collapse show item-1" role="tabpanel" data-parent="#curReps">
+                        <div class="card-body"><small class="d-sm-flex align-items-sm-start" style="max-width: inherit;">Active Branch:</small><small style="max-width: inherit;">Amount Of Branches:</small><small class="d-sm-flex align-items-sm-start" style="max-width: inherit;">Date of Last commit:</small>
+                            <small style="max-width: inherit;">Description of last commit:</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 float-right d-sm-flex justify-content-sm-center">
+            <ul class="list-group" id="usersList" style="overflow-y: scroll;max-height: inherit;">
+                <li class="list-group-item float-right d-sm-flex justify-content-sm-start align-items-sm-end"><button class="btn btn-primary d-sm-flex flex-fill justify-content-sm-center align-items-sm-end" type="button">oneuser</button></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h3>Other's Repositories</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div role="tablist" id="otherRep" style="overflow-y: scroll;max-height: inherit;">
+                <div class="card flex-shrink-1">
+                    <div class="card-header" role="tab">
+                        <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="true" aria-controls="otherRep .item-1" href="#otherRep .item-1">RepName</a><button class="btn btn-primary btn-sm float-right" type="button">Fork</button></h5>
+                    </div>
+                    <div class="collapse show item-1" role="tabpanel" data-parent="#otherRep">
+                        <div class="card-body"><small class="d-sm-flex align-items-sm-start" style="max-width: inherit;">Active Branch:</small><small style="max-width: inherit;">Amount Of Branches:</small><small class="d-sm-flex align-items-sm-start" style="max-width: inherit;">Date of Last commit:</small>
+                            <small style="max-width: inherit;">Description of last commit:</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

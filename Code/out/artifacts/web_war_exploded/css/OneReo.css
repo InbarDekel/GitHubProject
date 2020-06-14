@@ -1,0 +1,400 @@
+html{
+    overflow: auto;
+}
+
+#thRight {
+    min-width: 200px;
+    width: 200px;
+}
+
+#thCenter{
+    width: 100%;
+}
+
+#thLeft{
+    min-width: 100px;
+    width: 100px;
+
+}
+
+#mainBody {
+    background: #92c5ff;
+}
+
+#tableMain{
+    width: 100%;
+}
+
+#mainDiv{
+    width: 100%;
+    text-align: center;
+}
+
+.cell {
+    background: #ffeeab;
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    min-height: 60px;
+    max-width: 60px;
+    max-height: 60px;
+    font-size: 11px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    alignment: center;
+}
+
+.cell :hover{
+    cursor: pointer;
+}
+
+#rightDiv{
+    position: relative;
+    top: -80px;
+    min-width: 300px;
+}
+
+#containers{
+    visibility: hidden;
+}
+
+#LAframeOfPopup{
+    background:rgba(0,0,0,.4);
+    cursor:pointer;
+    display:none;
+    height:100%;
+    position:fixed;
+    text-align:center;
+    top:0;
+    width:100%;
+    z-index:10000;
+}
+
+#LAframeOfPopup #LAhelper{
+    display:inline-block;
+    height:100%;
+    vertical-align:middle;
+}
+
+#LAframeOfPopup > div {
+    background-color: #fff;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: auto;
+    vertical-align: middle;
+    width: auto;
+    position: relative;
+    border-radius: 8px;
+    padding: 15px 5%;
+}
+
+.LApopupCloseButton {
+    background-color: #fff;
+    border: 3px solid #999;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 25px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+.LApopupCloseButton:hover {
+    background-color: #ccc;
+}
+
+#LAdivAllPopup{
+    height: auto;
+}
+
+#GTframeOfPopup{
+    background:rgba(0,0,0,.4);
+    cursor:pointer;
+    display:none;
+    height:100%;
+    position:fixed;
+    text-align:center;
+    top:0;
+    width:100%;
+    z-index:10000;
+}
+
+#GTframeOfPopup #GThelper{
+    display:inline-block;
+    height:100%;
+    vertical-align:middle;
+}
+
+#GTframeOfPopup > div {
+    background-color: #fff;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: auto;
+    vertical-align: middle;
+    width: auto;
+    position: relative;
+    border-radius: 8px;
+    padding: 15px 5%;
+}
+
+.GTpopupCloseButton {
+    background-color: #fff;
+    border: 3px solid #999;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 25px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+.GTpopupCloseButton:hover {
+    background-color: #ccc;
+}
+
+#GTdivAllPopup{
+    height: auto;
+}
+
+#EGframeOfPopup{
+    background:rgba(0,0,0,.4);
+    cursor:pointer;
+    display:none;
+    height:100%;
+    position:fixed;
+    text-align:center;
+    top:0;
+    width:100%;
+    z-index:10000;
+}
+
+#EGframeOfPopup #EGhelper{
+    display:inline-block;
+    height:100%;
+    vertical-align:middle;
+}
+
+#EGframeOfPopup > div {
+    background-color: #fff;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: auto;
+    vertical-align: middle;
+    width: auto;
+    position: relative;
+    border-radius: 8px;
+    padding: 15px 5%;
+}
+
+.EGpopupCloseButton {
+    background-color: #fff;
+    border: 3px solid #999;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 25px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+.EGpopupCloseButton:hover {
+    background-color: #ccc;
+}
+
+#EGdivAllPopup{
+    height: auto;
+}
+
+.statusDivGameStarted{
+    background-color: #61ff5d;
+    border: 1px solid #000000;
+    border-radius: 50px;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top :10px;
+    left :10px;
+}
+
+.statusDivGameDontStarted{
+    background-color: #ff081b;
+    border: 1px solid #000000;
+    border-radius: 50px;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top :10px;
+    left :10px;
+}
+
+#gameStatusText{
+    position: absolute;
+    top :10px;
+    left :35px;
+}
+
+.TableHead {
+    background: #62c1ff;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.TableHead th{
+    border-style: solid;
+    border-color: black;
+    border-width: thin;
+
+}
+
+.TableBody{
+    background: #92c5ff;
+    font-weight: normal;
+    font-size: small;
+
+}
+
+.TableBody th{
+    border-style: solid;
+    border-color: black;
+    border-width: thin;
+}
+
+.tableclass{
+    border-collapse: collapse;
+    margin: 10px;
+}
+
+button{
+    cursor: pointer;
+    background: #ffeeab;
+    margin: 10px;
+
+}
+
+select{
+    cursor: pointer;
+    background: #ffeeab;
+    min-width: 100%;
+}
+
+#divExitBeforeGameStart {
+     position: absolute;
+     top: 40px;
+     left: 10px;
+ }
+
+#roundCounter {
+    position: absolute;
+    top: 100px;
+    left: 20px;
+}
+
+#playersTable{
+    position: absolute;
+    top: 160px;
+
+}
+
+.nameOfPlayer{
+    position: relative;
+    left: -35px;
+}
+
+.divColorPlayer{
+    border: 1px solid #ffffff;
+    border-radius: 50px;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    left : -10px;
+}
+
+.tableForOnePlayer{
+    border-collapse: collapse;
+}
+
+#boardTableComponent{
+    horiz-align: center;
+    vert-align: top;
+    position: relative;
+    top: -55px;
+    left: 100px;
+    overflow: auto;
+    max-width: 600px;
+    max-height: 400px;
+    width: 600px;
+    height: 400px;
+}
+
+.headResult{
+    font-size: 10px;
+    width: 65px;
+
+}
+
+.headResultName{
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+
+
+}
+
+.headResultStatus{
+    font-size: 24px;
+    font-weight: bold;
+    padding: 20px;
+
+}
+
+#EGattackStatus{
+    font-size: 50px;
+    font-weight: bold;
+    padding: 50px;
+}
+
+#divLastAction{
+    position: absolute;
+    top: 40px;
+    left: 10px;
+    background-color: #ffeeab;
+    width: 200px;
+    height: 15px;
+    visibility: hidden;
+    border-width:0.5px;
+    border-color: black;
+    border-style: solid;
+    text-align: left;
+    font-size: 11px;
+    padding-left: 3px;
+}
+
+#chatarea {
+    overflow-y: scroll;
+    max-height: 100px;
+}

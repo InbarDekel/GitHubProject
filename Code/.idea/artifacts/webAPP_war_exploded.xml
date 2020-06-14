@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="webAPP:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/webAPP_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="webAPP" />
+          <element id="module-output" name="Logic" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="AncestorFinder1" />
+          <element id="library" level="project" name="google-gson-2" />
+        </element>
+      </element>
+      <element id="library" level="project" name="AncestorFinder" />
+      <element id="javaee-facet-resources" facet="webAPP/web/Web" />
+    </root>
+  </artifact>
+</component>

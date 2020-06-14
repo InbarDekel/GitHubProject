@@ -1,0 +1,228 @@
+html{
+    overflow: auto;
+}
+
+#button{
+    heigh: 300px;
+    font-family: "Californian FB";
+    background: #ffeeab;
+}
+
+.cell {
+    background: #ffeeab;
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    min-height: 60px;
+    max-width: 60px;
+    max-height: 60px;
+    font-size: 11px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    alignment: center;
+}
+
+
+#gamesTableHead{
+    font-weight: bold;
+    background: #62c1ff;
+
+}
+#mainDiv{
+    text-align: center;
+}
+
+#mainBody{
+    background: #92c5ff;
+    font-family: "Californian FB";
+}
+#divTableGames tr th {
+    border: 1px solid black;
+}
+#divTableGames table {
+    border-collapse: collapse;
+}
+.tableGame1{
+    border: 1px solid black;
+    width: 30px;
+    height: 15px;
+}
+.tableGame2{
+    border: 1px solid black;
+    width: 250px;
+    height: 15px;
+}
+.tableGame3{
+    border: 1px solid black;
+    width: 250px;
+    height: 15px;
+}
+.tableGame4{
+    border: 1px solid black;
+    width: 60px;
+    height: 15px;
+}
+#gamesTableBody tr:hover{
+    background-color: #ffeeab;
+    cursor: pointer;
+}
+#divUserList{
+float: left;
+}
+
+#frameOfPopup{
+    background:rgba(0,0,0,.4);
+    display:none;
+    height:100%;
+    max-height: 100%;
+    position:fixed;
+    text-align:center;
+    top:0;
+    width:100%;
+    max-width: 100%;
+    z-index:10000;
+}
+#frameOfPopup #helper{
+    display:inline-block;
+    height:100%;
+    max-height: 100%;
+    vertical-align:middle;
+}
+#divAllPopup {
+    background-color: #fff;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: auto;
+    max-height: 80%;
+    vertical-align: middle;
+    alignment: center;
+    width: auto;
+    max-width: 60%;
+    position: relative;
+    border-radius: 8px;
+    padding: 15px 5%;
+}
+.popupCloseButton {
+    background-color: #fff;
+    border: 3px solid #999;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 25px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+#divBodyPopuo{
+    max-height: 100%;
+}
+#tablePopUp{
+    max-width: 70%;
+    max-height: 70%;
+}
+#thBoard {
+    max-width: 60%;
+}
+#thForces{
+    max-width: 30%;
+    height: 90%;
+    max-height: 90%;
+}
+.popupCloseButton:hover {
+    background-color: #ccc;
+}
+
+#divBoard{
+    overflow: auto;
+    max-width: 500px;
+    max-height: 400px;
+}
+button{
+    cursor: pointer;
+    background: #ffeeab;
+    margin: 10px;
+
+
+}
+
+
+.statusDivGameStarted{
+    background-color: #61ff5d;
+    border: 1px solid #000000;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+}
+.statusDivGameDontStarted{
+    background-color: #ff081b;
+    border: 1px solid #000000;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+}
+#divUserList{
+    width: 170px;
+}
+#trChooseFileAndGamesTable{
+
+}
+#mainTable{
+    width: 90%;
+    left: 10%;
+}
+
+#exitButton{
+    background: #ffeeab;
+}
+
+.userTR{
+    background: #ffeeab;
+    border-width: thin;
+    border-style: solid;
+    border-color: black;
+    border-collapse: collapse;
+    min-width: 170px;
+    width: 170px;
+}
+#listUfUsers{
+    width:170px;
+}
+
+#unitTableHead {
+    background: #62c1ff;
+    font-weight: bold;
+    font-size: medium;
+}
+#unitTableHead th{
+    border-style: solid;
+    border-color: black;
+    border-width: thin;
+
+}
+#unitTableBody{
+    background: #92c5ff;
+    font-weight: normal;
+    font-size: small;
+
+}
+#unitTableBody th{
+    border-style: solid;
+    border-color: black;
+    border-width: thin;
+}
+#unitTable{
+    border-collapse: collapse;
+
+}
+

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="AncestorFinder1">
+    <CLASSES>
+      <root url="jar://C:/school/yaer2/c/git/jars/AncestorFinder.jar!/" />
+      <root url="jar://C:/school/yaer2/c/git/jars/commons-codec-1.12.jar!/" />
+      <root url="jar://C:/school/yaer2/c/git/jars/commons-collections4-4.3.jar!/" />
+      <root url="jar://C:/school/yaer2/c/git/jars/commons-io-2.6.jar!/" />
+      <root url="jar://C:/school/yaer2/c/git/jars/fxgraph-0.0.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

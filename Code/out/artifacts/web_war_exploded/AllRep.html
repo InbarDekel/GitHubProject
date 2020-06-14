@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MAG.i.t</title>
+    <link rel="stylesheet" type="text/css" href="css/AllRep.css">
+</head>
+<body id="mainBody">
+<div id="mainDiv">
+    <div>
+        <img src="pic/Git.png">
+    </div>
+    <table id="mainTable">
+        <tr id="trPlayers">
+            <td rowspan="2" >
+                <div id="divUserList">
+                    <table style="alignment: center" id="listUfUsers">
+
+                    </table>
+                    <button id="exitButton" onclick="exitFromUser()">Exit</button>
+                </div>
+            </td>
+            <td>
+                <div id="divFileChooser">
+                    <input id="fileInput" type="file" class="fileInputclass" accept="text/xml" onchange="loadFile(event)"/>
+                </div>
+                <div id="errorUploadFileMessage">
+                </div>
+            </td>
+        </tr>
+        <tr id="trChooseFileAndGamesTable">
+            <td>
+                <div id="divTableGames">
+                    <table align="center">
+                        <thead id="gamesTableHead">
+                        <tr>
+                            <th class="tableGame1">Status</th><th class="tableGame2">Name</th><th class="tableGame3">Creator</th><th class="tableGame4">Players</th>
+                        </tr>
+                        </thead>
+                        <tbody id="gamesTableBody">
+
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+
+    <br/>
+    <br/>
+
+    <br/>
+    <div id="frameOfPopup" >
+        <span id="helper"></span>
+        <div id="divAllPopup">
+            <div class="popupCloseButton" onclick="closeBoard()">X</div>
+            <div id="divBodyPopuo">
+                <table id="tablePopUp">
+                    <tr>
+                        <th id="thBoard">
+                            <div id="divBoard">
+                            </div>
+                        </th>
+                        <th id="thForces">
+                            <div>
+                                <table id="unitTable">
+                                    <thead id="unitTableHead">
+                                        <tr>
+                                            <th>rank</th><th>unit</th><th>power</th><th>damage</th><th>price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="unitTableBody">
+                                    </tbody>
+                                </table>
+                            </div>
+                            <br/>
+                            <button style="cursor: pointer" id="joinBTN" onclick="openRep()">Open Rep</button>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="javaScript/jQuery3.4.1.js"></script>
+    <script type="text/javascript" src="javaScript/AllRep.js"></script>
+</div>
+</body>
+</html>

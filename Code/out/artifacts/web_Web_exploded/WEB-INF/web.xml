@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+           version="3.0">
+<servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>servlets.LoginServlet</servlet-class>
+</servlet>
+    <servlet>
+        <servlet-name>UsersListServlet</servlet-name>
+        <servlet-class>servlets.UsersListServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UploadFile</servlet-name>
+        <servlet-class>servlets.UploadServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExitRepServlet</servlet-name>
+        <servlet-class>servlets.ExitRepServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExitAllRepServlet</servlet-name>
+        <servlet-class>servlets.ExitAllRepServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/html/sign/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsersListServlet</servlet-name>
+        <url-pattern>/usersList</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UploadFile</servlet-name>
+        <url-pattern>/uploadFile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExitAllRepServlet</servlet-name>
+        <url-pattern>/exitFromUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExitRepServlet</servlet-name>
+        <url-pattern>/exitFromRep</url-pattern>
+    </servlet-mapping>
+</web-app>

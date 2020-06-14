@@ -1,0 +1,31 @@
+html{
+    overflow: auto;
+}
+
+.UserNameInput {
+    width: 200px;
+    font-family: "Californian FB";
+    background: #ffeeab;
+}
+
+.buttonLogin {
+    heigh: 300px;
+    font-family: "Californian FB";
+    background: #ffeeab;
+}
+
+[type~="submit"]{
+    background: #ffeeab;
+    cursor: pointer;
+
+}
+
+.mainDiv{
+    text-align: center;
+}
+
+.mainBody{
+    background: #92c5ff;
+    border-color: black;
+    font-family: "Californian FB";
+}

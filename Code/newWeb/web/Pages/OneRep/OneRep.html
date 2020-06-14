@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>OneRep</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+<script src="../../common/jQuery3.4.1.js"></script>
+    <script src="../../common/context-path-helper.js"></script>
+    <script src="OneRep.js"></script>
+    <link rel="stylesheet" href="../../common/chatroom/chatroom.css">
+    <script src="../../common/chatroom/chatroom.js"></script>
+
+</head>
+
+<body style="width: inherit;max-width: inherit;height: inherit;">
+    <nav class="navbar navbar-light navbar-expand-md border rounded-0" style="width: inherit;">
+      
+	  <div class="container-fluid"><a class="navbar-brand float-left d-sm-flex justify-content-sm-center" id="RepName" href="#">Repository Name:</a>
+          <div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Chat&nbsp;</a>
+              <div class="dropdown-menu" style="max-height: 300px; min-width: 550px" role="menu">
+                  <div class="container-fluid">
+                      <div class="row">
+                          <div class="col-md-3">
+                              <div class="sidebar">
+                                  <h4>Online</h4>
+                                  <div class="clearfix">
+                                      <div class="input">
+                                          <ul id="userlist">
+                                          </ul>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-md-4">
+                              <div class="content">
+                                  <div id="chatwindow">
+                                      <h4>Chat</h4>
+                                      <div id="chatarea" class="span6"></div>
+                                      <form id="chatform" method="POST" action="sendChat">
+                                          <input type="text" id="userstring" name="userstring"/>
+                                          <input type="submit" value="Send"/>
+                                      </form>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <button class="navbar-toggler" data-toggle="collapse"><span class="sr-only">Toggle navigation</span><button class="btn btn-primary" onclick=exitFromRep() type="button">Exit</button></button>
+        </div>
+    </nav>
+    <div class="row">
+        <div class="col">
+            <h6>Remote Repository Details:</h6><small id="RepRName">Remote Repository Name:</small><small >Remote Repository Owner:</small><small id="RepROwner"></small></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-5">
+            <nav class="navbar navbar-light navbar-expand-md border rounded-0">
+                <div class="container-fluid"><a class="navbar-brand" href="#">Branches:</a><button class="btn btn-primary float-right"  onclick=Pull() type="button">Pull</button><button class="btn btn-primary float-right"  onclick=Push() type="button">Push</button><button class="btn btn-primary"
+
+                        onclick="DeleteBranch()" type="button">Delete</button><button class="btn btn-primary" id="New" onclick=newBranch() type="button">New</button></div>
+
+            </nav>
+
+            <h6 class="border rounded-0 d-sm-flex justify-content-sm-start" id="HeadB">Head Branch:</h6>
+            <div class="container">
+
+                <div role="tablist" id="accordion-1" style="/*max-width: inherit;*/overflow-y: scroll;">
+                <div class="card">
+                    <div class="card-header" role="tab">
+                     
+                        <h6 class="mb-0"><a class="visible" data-toggle="collapse" aria-expanded="true" aria-controls="accordion-1 .item-1" href="#accordion-1 .item-1">Branch Name</a><button class="btn btn-primary" id="checkout" type="button" style="font-size: 12px;">Checkout</button></h6>
+                    </div>
+                    <div class="collapse show item-1" role="tabpanel" data-parent="#accordion-1">
+                        <div class="card-body">
+                            <p class="card-text">Branch info</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+        </div>
+        <div class="col" type="button" style="background-color: #fefefe;">
+            <nav class="navbar navbar-light navbar-expand-md border rounded-0">
+                <div class="container-fluid"><a class="navbar-brand" href="#">Commits of Head Brnach:</a></div>
+            </nav>
+            <div role="tablist" id="accordion-2" style="overflow-y: scroll;">
+                <div class="card">
+                    <div class="card-header flex-fill" role="tab">
+                        <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="true" aria-controls="accordion-2 .item-1" href="#accordion-2 .item-1">Commit Desc</a><button class="btn btn-primary float-right" id="shoefilesofcommit" type="button">Show files</button></h5>
+                    </div>
+                    <div class="collapse show item-1" role="tabpanel" data-parent="#accordion-2">
+                        <div class="card-body">
+                            <p class="card-text">Commit info</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h6>Commit's files:</h6><textarea id="CommitFiles" style="width: inherit;"></textarea></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <nav class="navbar navbar-light navbar-expand-md border rounded-0">
+                <div class="container-fluid"><a class="navbar-brand" href="#">Working Copy Files:</a><button class="btn btn-primary d-sm-flex" onclick=CreateCommit() type="button">Commit</button><button class="btn btn-primary btn-sm float-right d-sm-flex justify-content-sm-end" onclick="AddFolder()" type="button">Add folder</button>
+                    <button
+                            class="btn btn-primary btn-sm float-right d-sm-flex justify-content-sm-end" onclick=DeleteFolder() type="button">Delete Folder</button>
+                    <button
+                        class="btn btn-primary btn-sm float-right d-sm-flex justify-content-sm-end" onclick=AddNewFile() type="button">Add file</button>
+
+                </div>
+            </nav>
+            <ul class="list-group" id="listOfFiles" style="overflow-y: scroll;">
+				 <li class="list-group-item d-sm-flex align-items-sm-center">
+                    <div class="container"><button class="btn btn-primary text-left d-sm-flex flex-fill justify-content-sm-center" id="filePath" type="button" style="width: inherit;">file path</button>
+                       <ul class="list-group" style="overflow-y: scroll;">
+                            <li class="list-group-item d-sm-flex align-items-sm-center">
+                                <div class="container"><button id="fileInDirPath" class="btn btn-primary text-left d-sm-flex flex-fill justify-content-sm-center"  type="button" style="width: inherit;">file path</button></div>
+
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+			
+            </ul>
+        </div>
+        <div class="col">
+            <nav class="navbar navbar-light navbar-expand-md border rounded-0">
+                <div class="container-fluid"><a class="navbar-brand" id="FileName">File Name:</a></div>
+            </nav>
+            </nav><textarea id="fileContent" style="width: inherit;"></textarea><button class="btn btn-primary float-right" onclick=SaveFile() type="button">save</button><button class="btn btn-primary float-right" onclick=DeleteFile() type="button">delete</button></div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h6>Open changes in WC:</h6><textarea id="listOfChanges" style="width: inherit;"></textarea></div>
+            
+    </div>
+ <div class="row" style="width: inherit;">
+        <div class="col">
+            <h3>Notifications</h3>
+                   <div class="float-left" role="tablist" id="notifications" style="width: inherit;">
+                <div class="card" style="width: inherit;">
+                    <div class="card-header" role="tab">
+                        <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="true" aria-controls="notifications .item-1" href="#notifications .item-1">Forked Repositories</a></h5>
+                    </div>
+                    <div class="collapse show item-1" role="tabpanel" data-parent="#notifications" style="width: inherit;">
+                        <div class="card-body"><textarea id="forkNot" style="width: inherit;height: inherit;"></textarea></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" role="tab">
+                        <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="notifications .item-2" href="#notifications .item-2">Updates</a></h5>
+                    </div>
+                    <div class="collapse item-2" role="tabpanel" data-parent="#notifications">
+                        <div class="card-body"><textarea id="PRNot"></textarea></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" role="tab">
+                        <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="notifications .item-3" href="#notifications .item-3">PR requests</a></h5>
+                    </div>
+                    <div class="collapse item-3" role="tabpanel" data-parent="#notifications">
+                        <div class="card-body"><textarea id="UpdateNot"></textarea></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <nav class="navbar navbar-light navbar-expand-md">
+                <div class="container-fluid"><a class="navbar-brand" href="#">PR's</a><button class="btn btn-primary" onclick=CreatePR() type="button">Create new PR</button></div>
+            </nav>
+            <ul class="list-group" id="listOfPR" style="overflow-y: scroll;">
+                <li class="list-group-item d-sm-flex justify-content-sm-center"><button class="btn btn-primary text-left float-left d-sm-flex flex-fill justify-content-sm-center align-items-sm-end"  type="button">PR desc</button></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row d-sm-flex justify-content-sm-start">
+        <div class="col">
+            <nav class="navbar navbar-light navbar-expand-md border rounded-0 navigation-clean">
+                <div class="container"><a class="navbar-brand" id="PRDesc" href="#">PR detailes</a><button class="btn btn-primary" onclick="DeclinePR()" type="button">Decline</button><button class="btn btn-primary" onclick="AcceptPR()" type="button">Accept</button></div>
+         
+		 </nav>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+           
+            <nav class="navbar navbar-light navbar-expand-md border rounded-0">
+                <div class="container-fluid"><a class="navbar-brand">Changes in Commit</a></div>
+                     </nav>
+            <ul class="list-group" id="FileslistOfPR" style="overflow-y: scroll;">
+                <li class="list-group-item d-sm-flex justify-content-sm-center"><button class="btn btn-primary text-left float-left d-sm-flex flex-fill justify-content-sm-center align-items-sm-end" id="fileDescforChangedCommit" type="button">file path</button></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <nav class="navbar navbar-light navbar-expand-md border rounded-0">
+                <div class="container-fluid"><a id="PRFileName" class="navbar-brand">File Content:</a></div>
+            </nav><textarea id="PRfileContentFor" style="width: inherit;"></textarea></div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Class-Path: gson-2.1.jar gson-2.1-javadoc.jar gson-2.1-sources.jar Anc
+ estorFinder.jar commons-codec-1.12.jar commons-collections4-4.3.jar c
+ ommons-io-2.6.jar fxgraph-0.0.3.jar
+Main-Class: 
+
